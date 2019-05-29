@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+</head>
+
+<body>
+
+
+
+<input type = "text" name = "NUM1" id= "valor1"/>
+<br>
+<br>
+<input type = "text" name = "NUM2" id= "valor2"/>
+<br>
+<br>
+<button onclick = "Enviar()">
+calcular operaciones basicas
+</button>
+<br>
+<br>
+<h1 id="title"></h1>
+
+<script>
+
+function Enviar()
+{
+var objeto = new XMLHttpRequest();
+
+var num1;
+var num2;
+
+num1 = document.getElementById('valor1').value;
+num2 = document.getElementById('valor2').value;
+
+var cadena = "num1="+num1+ "&num2=" + num2;
+
+objeto.open('POST', 'PHPAJAX_ejercicio_11_code.php',true);
+objeto.setRequestHeader ('Content-Type', 'application/x-www-form-urlencoded');
+objeto.onreadystatechange = function()
+{
+  document.getElementById('title').innerHTML = objeto.responseText;
+
+}
+
+objeto.send(cadena);
+
+
+
+
+
+}
+
+
+</script>
+
+</form>
+
+
+</body>
+
+</html> 

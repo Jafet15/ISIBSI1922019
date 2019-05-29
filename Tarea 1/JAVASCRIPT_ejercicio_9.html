@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+<script>
+
+var Palabra;
+var PalabraAlrrevez = "";
+
+Palabra = prompt('Ingrese una palabra y le indicare si es palindromo o no','');
+Palabra=Palabra.replace(/ /g, "");
+
+for(i = Palabra.length; i > 0; i--)
+{
+
+
+PalabraAlrrevez += Palabra.charAt(i-1);
+
+}
+
+if(Palabra == PalabraAlrrevez)
+{
+alert("La palabra es palindromo");
+}
+else
+{
+alert("La palabra no es palindromo");
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+
+
+</body>
+
+</html> 

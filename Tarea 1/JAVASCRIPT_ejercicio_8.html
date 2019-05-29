@@ -1,0 +1,69 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+<script>
+var Cadena;
+var MayusEncontrada=0;
+var MinusEncontrada=0;
+
+
+Cadena = prompt('Ingrese una cadena de texto para verificar si la cadena contiene mayusculas, minusculas o ambas','');
+
+for(var i = 0; i < Cadena.length; i++)
+{
+Letra = Cadena.charAt(i);
+
+if(Mayuscula(Letra)==true)
+{
+ MayusEncontrada = MayusEncontrada+1;
+
+}
+else
+{
+MinusEncontrada = MinusEncontrada+1;
+
+}
+
+
+
+}
+
+if(MayusEncontrada > 0 && MinusEncontrada == 0)
+{
+alert("La cadena solo contiene letras en mayuscula"); 
+
+}
+else
+{
+  if(MinusEncontrada > 0 && MayusEncontrada == 0)
+  {
+   alert("La cadena solo contiene letras en minuscula"); 
+  }
+  else
+  {
+   alert("La cadena contiene letras en minuscula y letras en mayuscula"); 
+  }
+
+
+}
+
+
+function Mayuscula(Letra)
+{
+    return Letra === Letra.toUpperCase();
+}
+
+ 
+
+</script>
+
+</head>
+
+<body>
+
+
+
+</body>
+
+</html> 
