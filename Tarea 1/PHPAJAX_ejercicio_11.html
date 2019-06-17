@@ -1,55 +1,60 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
+<script type="text/javascript" src="JQUERY/jquery-3.4.1.min.js"></script>
+
 
 </head>
 
 <body>
 
-
-
+<form>
 <input type = "text" name = "NUM1" id= "valor1"/>
 <br>
 <br>
 <input type = "text" name = "NUM2" id= "valor2"/>
 <br>
 <br>
-<button onclick = "Enviar()">
-calcular operaciones basicas
-</button>
+<input type = "submit" value="calcular">
+</form>
 <br>
 <br>
 <h1 id="title"></h1>
 
 <script>
 
-function Enviar()
+
+$(document).ready(function()
 {
-var objeto = new XMLHttpRequest();
+
+
+$('form').submit(function(evento){
+evento.preventDefault();
 
 var num1;
 var num2;
-
 num1 = document.getElementById('valor1').value;
 num2 = document.getElementById('valor2').value;
-
 var cadena = "num1="+num1+ "&num2=" + num2;
 
-objeto.open('POST', 'PHPAJAX_ejercicio_11_code.php',true);
-objeto.setRequestHeader ('Content-Type', 'application/x-www-form-urlencoded');
-objeto.onreadystatechange = function()
-{
-  document.getElementById('title').innerHTML = objeto.responseText;
+$.ajax({
 
-}
-
-objeto.send(cadena);
-
-
+url: 'PHP_ejercicio_11.php',
+type: 'post',
+dataType: 'json',
+data:cadena
+})
+$("#title").load("PHP_ejercicio_11.php", {num1: num1, num2: num2}, function(){
+alert("recibidos los datos por ajax"); });
 
 
 
-}
+
+});
+
+
+});
 
 
 </script>
